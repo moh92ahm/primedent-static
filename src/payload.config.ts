@@ -17,6 +17,7 @@ import { Header } from './Header/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
+import { Services } from './collections/Services'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -64,11 +65,10 @@ export default buildConfig({
     // Default to a local Postgres instance if DATABASE_URI is not provided
     pool: {
       connectionString:
-        process.env.DATABASE_URI ||
-        'postgresql://postgres:postgres@localhost:5432/payload',
+        process.env.DATABASE_URI || 'postgresql://postgres:postgres@localhost:5432/payload',
     },
   }),
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [Pages, Posts, Services, Media, Categories, Users ],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer, SocialLinks],
   plugins: [
