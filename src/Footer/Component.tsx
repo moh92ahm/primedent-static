@@ -20,7 +20,7 @@ export async function Footer() {
   return (
     <footer className="relative overflow-hidden font-body text-white bg-gradient-to-t from-brand-dark to-transparent">
       {/* Background image (optional) */}
-      <div className="absolute inset-0 bg-cover bg-no-repeat bg-center" style={{ backgroundImage: "url('')", zIndex: 0 }}></div>
+      {/* <div className="absolute inset-0 bg-cover bg-no-repeat bg-center" style={{ backgroundImage: "url('')", zIndex: 0 }}></div> */}
 
       {/* Call to Action Section */}
       <div className="bg-brand-primary text-brand-dark py-10 px-6 md:px-20 mx-4 md:mx-12 lg:mx-26 2xl:mx-52 relative z-10">
@@ -67,13 +67,21 @@ export async function Footer() {
 
           {/* Links Column */}
           <div>
-            <h3 className="font-bold mb-3 font-heading">Link</h3>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Doctors</a></li>
-              <li><a href="#">Contact Us</a></li>
-            </ul>
+            <h3 className="font-bold mb-3 font-heading">Our Pages</h3>
+            {/* <ul className="space-y-2 text-sm text-gray-300">
+              {navItems.map((item, idx) => (
+                item?.link?.url && item?.link?.label ? (
+                  <li key={idx}>
+                    <a href={item.link.url}>{item.link.label}</a>
+                  </li>
+                ) : null
+              ))}
+            </ul> */}
+            <nav className="flex flex-col space-y-2 text-sm text-brand-white hover:text-brand-primary">
+            {navItems.map(({ link }, i) => {
+              return <CMSLink className="text-white" key={i} {...link} />
+            })}
+          </nav>
           </div>
 
           {/* Services Column */}
