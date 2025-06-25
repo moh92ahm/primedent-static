@@ -8,14 +8,14 @@
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
     "postbuild": "next-sitemap --config next-sitemap.config.cjs",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
-    "dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm build && pnpm start",
+    "dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && npm run build && npm run start",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
-    "ii": "cross-env NODE_OPTIONS=--no-deprecation pnpm --ignore-workspace install",
+    "ii": "cross-env NODE_OPTIONS=--no-deprecation npm install",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
     "lint:fix": "cross-env NODE_OPTIONS=--no-deprecation next lint --fix",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-    "reinstall": "cross-env NODE_OPTIONS=--no-deprecation rm -rf node_modules && rm pnpm-lock.yaml && pnpm --ignore-workspace install",
+    "reinstall": "cross-env NODE_OPTIONS=--no-deprecation rm -rf node_modules && rm package-lock.json && npm install",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
@@ -49,6 +49,7 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "7.45.4",
+    "react-icons": "^5.5.0",
     "sharp": "0.32.6",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7"
@@ -72,10 +73,5 @@
   "engines": {
     "node": "^18.20.2 || >=20.9.0",
     "pnpm": "^9 || ^10"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "sharp"
-    ]
   }
 }

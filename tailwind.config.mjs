@@ -124,7 +124,7 @@ const config = {
               '--tw-prose-body': 'var(--text)',
               '--tw-prose-headings': 'var(--text)',
               h1: {
-                fontWeight: 'normal',
+                fontWeight: 'bold',
                 marginBottom: '0.25em',
               },
             },
@@ -135,11 +135,13 @@ const config = {
             {
               h1: {
                 fontSize: '2.5rem',
+                fontWeight: 700,
               },
               h2: {
                 fontSize: '1.25rem',
-                fontWeight: 600,
+                fontWeight: 700,
               },
+              
             },
           ],
         },
@@ -148,9 +150,19 @@ const config = {
             {
               h1: {
                 fontSize: '3.5rem',
+                fontWeight: 700,
               },
               h2: {
                 fontSize: '1.5rem',
+                fontWeight: 700,
+              },
+              h3: {
+                fontSize: '1.5rem',
+                fontWeight: 700,
+              },
+              h4: {
+                fontSize: '1.25rem',
+                fontWeight: 700,
               },
             },
           ],
