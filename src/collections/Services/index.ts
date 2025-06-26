@@ -15,8 +15,7 @@ import { Banner } from '../../blocks/Banner/config'
 import { Code } from '../../blocks/Code/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
-import { populateAuthors } from '../Posts/hooks/populateAuthors'
-import { revalidateDelete, revalidatePost } from '../Posts/hooks/revalidatePost'
+import { revalidateDelete, revalidateService } from '../Services/hooks/revalidateService'
 
 import {
   MetaDescriptionField,
@@ -209,8 +208,7 @@ export const Services: CollectionConfig<'services'> = {
     ...slugField(),
   ],
   hooks: {
-    afterChange: [revalidatePost],
-    afterRead: [populateAuthors],
+    afterChange: [revalidateService],
     afterDelete: [revalidateDelete],
   },
   versions: {
