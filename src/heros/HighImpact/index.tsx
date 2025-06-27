@@ -16,15 +16,16 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
   })
 
   return (
-    <div
-      className="relative -mt-[10.4rem] flex items-center justify-center text-white"
-      data-theme="dark"
-    >
-      <div className="container mb-8 z-10 relative flex items-center justify-center">
-        <div className="max-w-[36.5rem] md:text-center">
+    <div className="relative text-brand-white overflow-hidden min-h-screen">
+      {/* <div className="absolute top-0 left-0 w-full h-px bg-brand-accent z-20" />
+      <div className="absolute top-0 left-0 h-full w-px bg-brand-accent z-20" /> */}
+
+      <div className="max-w-screen-xl mx-auto px-6 md:flex md:items-center md:justify-between">
+        {/* RichText & CTA */}
+        <div className="text-center mb-6 md:text-left md:max-w-md z-10">
           {richText && <RichText className="mb-6" data={richText} enableGutter={false} />}
           {Array.isArray(links) && links.length > 0 && (
-            <ul className="flex md:justify-center gap-4">
+            <ul className="flex justify-center md:justify-start gap-4">
               {links.map(({ link }, i) => {
                 return (
                   <li key={i}>
@@ -35,11 +36,19 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
             </ul>
           )}
         </div>
+
+        {/* Doctor Image */}
+        <div className="md:mt-0 z-10 hidden md:flex md:justify-end w-full md:max-w-2xl">
+          {media && typeof media === 'object' && (
+            <Media imgClassName="object-contain w-full h-auto max-h-[80vh]" priority resource={media} />
+          )}
+        </div>
       </div>
-      <div className="min-h-[80vh] select-none">
-        {media && typeof media === 'object' && (
-          <Media fill imgClassName="-z-10 object-cover" priority resource={media} />
-        )}
+
+      {/* Bottom Section Placeholder (e.g., for 20vh contact form) */}
+      <div className="h-[30vh] max-w-screen-xl mx-auto flex items-center justify-center bg-brand-dark">
+        {/* Replace this with your contact form */}
+        <p className="text-lg text-brand-light">[ Contact form goes here... ]</p>
       </div>
     </div>
   )
