@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 import React from 'react'
 
 import { FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa'
@@ -20,9 +21,10 @@ export async function Footer() {
   } as FooterType
 
   const services = [
-    { id: '1', title: 'Service One', slug: 'service-one' },
-    { id: '2', title: 'Service Two', slug: 'service-two' },
-    { id: '3', title: 'Service Three', slug: 'service-three' },
+    'Hollywood Smile',
+    'All-on-4/6',
+    'Dental Implant',
+    'Zirconium Crown',
   ]
 
   const navItems = footerData?.navItems || []
@@ -93,10 +95,8 @@ export async function Footer() {
           <div>
             <h3 className="font-bold mb-3 font-heading">Services</h3>
             <ul className="space-y-2 text-sm text-brand-white">
-              {services.map((service) => (
-                <li key={service.id}>
-                  <Link href={`/services/${service.slug}`}>{service.title}</Link>
-                </li>
+              {services.map((title, idx) => (
+                <li key={idx}>{title}</li>
               ))}
             </ul>
           </div>
