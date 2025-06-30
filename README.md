@@ -307,6 +307,13 @@ export default buildConfig({
 
 There is also a simplified [one click deploy](https://github.com/payloadcms/payload/tree/templates/with-vercel-postgres) to Vercel should you need it.
 
+#### Static deployments
+
+If you only need a static front-end, add `output: 'export'` to your
+`next.config.js` and create a minimal `vercel.json` pointing Vercel at the
+`dist` directory. Running `npm run build` will then generate the fully static
+site that can be deployed without any server functions.
+
 ### Self-hosting
 
 Before deploying your app, you need to:
