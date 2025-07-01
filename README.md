@@ -307,6 +307,8 @@ export default buildConfig({
 
 There is also a simplified [one click deploy](https://github.com/payloadcms/payload/tree/templates/with-vercel-postgres) to Vercel should you need it.
 
+<<<<<<< HEAD
+=======
 #### Static deployments
 
 If you only need a static front-end, add `output: 'export'` to your
@@ -314,6 +316,7 @@ If you only need a static front-end, add `output: 'export'` to your
 `dist` directory. Running `npm run build` will then generate the fully static
 site that can be deployed without any server functions.
 
+>>>>>>> e48039beb0c357ef26ab4589d85a35f28929b1b9
 ### Self-hosting
 
 Before deploying your app, you need to:

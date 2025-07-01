@@ -18,11 +18,11 @@ export const Logo = (props: Props) => {
     <img
       alt="Primedent Logo"
       width={914}
-      height={188}
+      height={118}
       loading={loading}
       fetchPriority={priority}
       decoding="async"
-      className={clsx('max-w-[16rem] w-full h-auto', className)}
+      className={clsx('max-w-[9.375rem] w-full h-[34px]', className)}
       src="/primedent-logo-dark.png"
     />
   )

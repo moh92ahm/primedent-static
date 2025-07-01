@@ -29,23 +29,17 @@ export async function Footer() {
 
   return (
     <footer className="relative overflow-hidden font-body text-white bg-gradient-to-t from-brand-dark to-transparent">
-      <div className="bg-brand-primary text-brand-dark py-10 px-20 max-w-screen-xl mx-auto relative z-10">
-        <div className="  flex flex-col md:flex-row justify-between items-center gap-6">
+      <div className="bg-brand-primary text-brand-dark py-10 px-6 md:px-20 mx-4 md:mx-12 lg:mx-26 2xl:mx-52 relative z-10">
+        <div className=" max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left md:max-w-md max-w-sm">
             <p className="text-sm uppercase mb-2">Start Your Smile Journey Today</p>
             <h2 className="text-2xl md:text-3xl font-heading font-bold leading-snug">
               Get in touch — our <br /> coordinators speak your language.
             </h2>
           </div>
-            <CMSLink
-              className="bg-brand-dark text-white px-6 py-3 flex items-center gap-2 mt-4 md:mt-0 hover:bg-gray-800 transition"
-              url="/contact-us"
-              label="Get Free Consultation →"
-              type="custom"
-            />
-          {/* <button className="bg-brand-dark text-white px-6 py-3 flex items-center gap-2 mt-4 md:mt-0 hover:bg-gray-800 transition">
+          <button className="bg-brand-dark text-white px-6 py-3 flex items-center gap-2 mt-4 md:mt-0 hover:bg-gray-800 transition">
             Get Free Consultation <span>→</span>
-          </button> */}
+          </button>
         </div>
       </div>
 
@@ -66,7 +60,7 @@ export async function Footer() {
                 rel="noopener noreferrer"
                 className="bg-brand-background rounded-full p-3 flex items-center justify-center hover:bg-brand-primary  transition"
               >
-                <FaInstagram size={18} className="text-white" />
+                <FaInstagram size={18} className="text-white hover:text-brand-background" />
               </a>
               <a
                 href="https://facebook.com"
@@ -74,7 +68,7 @@ export async function Footer() {
                 rel="noopener noreferrer"
                 className="bg-brand-background rounded-full p-3 flex items-center justify-center hover:bg-brand-primary  transition"
               >
-                <FaFacebookF size={18} className="text-white" />
+                <FaFacebookF size={18} className="text-white hover:text-brand-background" />
               </a>
               <a
                 href="https://youtube.com"
@@ -82,7 +76,7 @@ export async function Footer() {
                 rel="noopener noreferrer"
                 className="bg-brand-background rounded-full p-3 flex items-center justify-center hover:bg-brand-primary  transition"
               >
-                <FaYoutube size={18} className="text-white" />
+                <FaYoutube size={18} className="text-white hover:text-brand-background" />
               </a>
             </div>
           </div>

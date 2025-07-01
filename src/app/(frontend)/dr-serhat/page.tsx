@@ -14,7 +14,7 @@ export default async function DrSerhatPage() {
   const page = (await getCachedDocument('pages', 'dr-serhat')()) as PageType | null
   return (
     <div className="relative text-brand-white overflow-hidden min-h-screen">
-      <RenderHero {...page?.hero} />
+      <RenderHero {...page?.hero} type={page?.hero?.type ?? "none"} />
 
       {/* Doctor Profile */}
       <div className="max-w-screen-xl mx-auto px-6 md:flex md:gap-10 md:items-start mb-16 mt-20">
