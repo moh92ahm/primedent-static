@@ -14,9 +14,7 @@ export default async function Page() {
 
   return (
     <div className="relative text-brand-white overflow-hidden">
-      {page?.hero && page.hero.type ? (
-        <RenderHero {...page.hero} />
-      ) : null}
+      {page?.hero && page.hero.type ? (<RenderHero {...page.hero} />) : null}
       <main className="container py-24">
         <h1 className="text-3xl font-bold mb-4">Welcome to Primedent</h1>
         <p>This is a placeholder homepage. Replace this content with your own.</p>

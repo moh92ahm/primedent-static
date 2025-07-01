@@ -13,7 +13,7 @@ export default async function ContactUsPage() {
   const page = (await getCachedDocument('pages', 'contact-us')()) as PageType | null
   return (
      <div className="relative text-brand-white overflow-hidden min-h-screen">
-      <RenderHero {...page?.hero} />
+      <RenderHero {...page?.hero} type={page?.hero?.type ?? "none"} pageTitle={page?.title} />
 
       {/* Contact Form + Info */}
       <div className="max-w-screen-xl mx-auto mt-20 px-6 md:flex md:gap-20 md:items-start mb-10">
