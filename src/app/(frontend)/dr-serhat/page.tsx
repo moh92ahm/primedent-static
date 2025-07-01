@@ -11,8 +11,13 @@ export default function DrSerhatPage() {
     <div className="relative text-brand-white overflow-hidden min-h-screen">
       {/* Top Title Section */}
       <div className="text-center pt-20 pb-10">
+<<<<<<< HEAD
         <h1 className="text-4xl md:text-6xl font-bold font-heading">Dr. Serhat</h1>
         <p className="text-brand-white">Home - Dr. Serhat</p>
+=======
+        <h1 className="text-4xl md:text-6xl font-heading">Dr. Serhat</h1>
+        <p className="mt-2 text-sm text-muted-foreground">Home - Dr. Serhat</p>
+>>>>>>> e48039beb0c357ef26ab4589d85a35f28929b1b9
       </div>
 
       {/* Doctor Profile */}
