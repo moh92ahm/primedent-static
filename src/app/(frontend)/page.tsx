@@ -1,15 +1,24 @@
 import type { Metadata } from 'next'
 import React from 'react'
 
+import type { Page as PageType } from '@/payload-types'
+import { RenderHero } from '@/heros/RenderHero'
+import { getCachedDocument } from '@/utilities/getDocument'
+
 export const metadata: Metadata = {
   title: 'Home | Primedent',
 }
 
-export default function Page() {
+export default async function Page() {
+  const page = (await getCachedDocument('pages', 'home')()) as PageType | null
+
   return (
-    <main className="container py-24">
-      <h1 className="text-3xl font-bold mb-4">Welcome to Primedent</h1>
-      <p>This is a placeholder homepage. Replace this content with your own.</p>
-    </main>
+    <div className="relative text-brand-white overflow-hidden">
+      <RenderHero {...page?.hero} />
+      <main className="container py-24">
+        <h1 className="text-3xl font-bold mb-4">Welcome to Primedent</h1>
+        <p>This is a placeholder homepage. Replace this content with your own.</p>
+      </main>
+    </div>
   )
 }

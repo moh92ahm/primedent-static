@@ -4,19 +4,20 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import type { Page as PageType } from '@/payload-types'
+import { RenderHero } from '@/heros/RenderHero'
+import { getCachedDocument } from '@/utilities/getDocument'
+
 export const metadata: Metadata = {
   title: 'About Us | Primedent',
 }
 
-export default function AboutUsPage () {
+export default async function AboutUsPage() {
+  const page = (await getCachedDocument('pages', 'about-us')()) as PageType | null
 
   return (
     <div className="relative text-brand-white overflow-hidden">
-      {/* Hero Section */}
-      <div className="text-center pt-20 pb-10">
-        <h1 className="text-5xl font-bold">About Us</h1>
-        <p className="text-brand-light">Home - About Us</p>
-      </div>
+      <RenderHero {...page?.hero} />
 
       {/* Who We Are Section */}
       <div className="max-w-screen-xl mx-auto px-6 md:flex md:items-center md:gap-10 mb-24">
