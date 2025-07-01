@@ -1,18 +1,19 @@
 import type { Metadata } from 'next'
 import React from 'react'
 
+import type { Page as PageType } from '@/payload-types'
+import { RenderHero } from '@/heros/RenderHero'
+import { getCachedDocument } from '@/utilities/getDocument'
+
 export const metadata: Metadata = {
   title: 'Contact Us | Primedent',
 }
 
-export default function ContactUsPage() {
+export default async function ContactUsPage() {
+  const page = (await getCachedDocument('pages', 'contact-us')()) as PageType | null
   return (
      <div className="relative text-brand-white overflow-hidden min-h-screen">
-      {/* Top Title Section */}
-      <div className="text-center pt-20 pb-10">
-        <h1 className="text-4xl md:text-6xl font-heading">Contact Us</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Home - Contact Us</p>
-      </div>
+      <RenderHero {...page?.hero} />
 
       {/* Contact Form + Info */}
       <div className="max-w-screen-xl mx-auto mt-20 px-6 md:flex md:gap-20 md:items-start mb-10">

@@ -3,11 +3,16 @@ import React from 'react'
 
 import Image from 'next/image'
 
+import type { Page as PageType } from '@/payload-types'
+import { RenderHero } from '@/heros/RenderHero'
+import { getCachedDocument } from '@/utilities/getDocument'
+
 export const metadata: Metadata = {
   title: 'Services | Primedent',
 }
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const page = (await getCachedDocument('pages', 'services')()) as PageType | null
   const services = [
     {
       title: 'Dental Implants',
@@ -43,11 +48,7 @@ export default function ServicesPage() {
 
   return (
     <div className="bg-background text-foreground">
-      {/* Hero Section */}
-      <section className="py-20 text-center">
-        <h1 className="text-4xl md:text-6xl font-heading">Services</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Home - Services</p>
-      </section>
+      <RenderHero {...page?.hero} />
 
       {/* Services Grid */}
       <section className=" max-w-screen-xl m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 pb-24">
