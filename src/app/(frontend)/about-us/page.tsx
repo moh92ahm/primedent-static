@@ -38,7 +38,7 @@ export default async function AboutUsPage() {
       {/* Our Vision & Values Section */}
       <div className="max-w-screen-xl mx-auto px-6 md:flex md:items-center md:gap-10 mb-24">
         <div className="md:w-1/2 w-full mb-10 md:mb-0">
-          <Image src="/" alt="" width={400} height={400} className="rounded w-full object-contain" priority />
+          <Image src="about-us-play-video.jpg" alt="" width={400} height={400} className="rounded w-full object-contain" priority />
         </div>
         <div className="md:w-1/2 w-full">
           <h3 className="text-brand-accent font-semibold mb-2"># Our Vision & Values</h3>
@@ -111,7 +111,7 @@ export default async function AboutUsPage() {
           </div>
         </div>
         <Image
-          src="/video-thumbnail.jpg"
+          src="/about-us-play-video.jpg"
           alt="Play Video"
           layout="fill"
           objectFit="cover"
