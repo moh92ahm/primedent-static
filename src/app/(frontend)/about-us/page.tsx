@@ -17,7 +17,7 @@ export default async function AboutUsPage() {
 
   return (
     <div className="relative text-brand-white overflow-hidden">
-      {page?.hero && <RenderHero {...page.hero} />}
+      <RenderHero {...page?.hero} type={page?.hero?.type ?? "none"} pageTitle={page?.title} />
 
       {/* Who We Are Section */}
       <div className="max-w-screen-xl mx-auto px-6 md:flex md:items-center md:gap-10 mb-24">

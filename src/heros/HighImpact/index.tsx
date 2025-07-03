@@ -7,50 +7,62 @@ import type { Page } from '@/payload-types'
 import { CMSLink } from '@/components/Link'
 import { Media } from '@/components/Media'
 import RichText from '@/components/RichText'
-
+// import { FormBlock } from '@/blocks/Form/Component'
 
 export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText }) => {
   const { setHeaderTheme } = useHeaderTheme()
 
   useEffect(() => {
     setHeaderTheme('dark')
-  })
+  }, [setHeaderTheme])
 
   return (
-    <div className="relative text-brand-white overflow-hidden min-h-screen">
-      {/* <div className="absolute top-0 left-0 w-full h-px bg-brand-accent z-20" />
-      <div className="absolute top-0 left-0 h-full w-px bg-brand-accent z-20" /> */}
-
-      <div className="max-w-screen-xl mx-auto px-6 md:flex md:items-center md:justify-between">
-        {/* RichText & CTA */}
-        <div className="text-center mb-6 md:text-left md:max-w-md z-10">
-          {richText && <RichText className="mb-6" data={richText} enableGutter={false} />}
-          {Array.isArray(links) && links.length > 0 && (
-            <ul className="flex justify-center md:justify-start gap-4">
-              {links.map(({ link }, i) => {
-                return (
+    <div className="relative text-brand-white min-h-screen h-screen flex flex-col">
+      {/* Hero Section (75%) */}
+      <section className="flex-1 basis-3/4 flex flex-col justify-center">
+        <div className="flex flex-col md:flex-row max-w-screen-xl mx-auto w-full h-full px-6 gap-8 items-center">
+          {/* Left: RichText & CTA */}
+          <div className="flex-1 text-center md:text-left md:max-w-md z-10 flex flex-col justify-center items-center md:items-start">
+            {richText && <RichText className="mb-6" data={richText} enableGutter={false} />}
+            {Array.isArray(links) && links.length > 0 && (
+              <ul className="flex justify-center md:justify-start gap-4">
+                {links.map(({ link }, i) => (
                   <li key={i}>
                     <CMSLink {...link} />
                   </li>
-                )
-              })}
-            </ul>
-          )}
+                ))}
+              </ul>
+            )}
+          </div>
+          {/* Right: Doctor Image */}
+          <div className="flex-1 flex justify-center md:justify-end w-full md:max-w-2xl">
+            {media && typeof media === 'object' && (
+              <Media
+                imgClassName="object-contain w-full h-auto max-h-[60vh]"
+                priority
+                resource={media}
+              />
+            )}
+          </div>
         </div>
+      </section>
 
-        {/* Doctor Image */}
-        <div className="md:mt-0 z-10 hidden md:flex md:justify-end w-full md:max-w-2xl">
-          {media && typeof media === 'object' && (
-            <Media imgClassName="object-contain w-full h-auto max-h-[80vh]" priority resource={media} />
-          )}
+      {/* CTA Section (25%) */}
+      <section className="basis-1/4 flex  items-stretch bg-brand-dark w-full">
+        <div className="max-w-screen-xl mx-auto w-full flex flex-col md:flex-row items-stretch px-6 py-8 gap-8">
+          {/* Left: CTA RichText */}
+          <div className="flex-1 flex items-center justify-center md:justify-start">
+            {/* Replace with actual CTA richText if available */}
+            <div className="text-lg text-brand-light">[ CTA RichText goes here... ]</div>
+          </div>
+          {/* Right: Form */}
+          <div className="flex-1 flex items-center justify-center md:justify-end">
+            {/* Use FormBlock from blocks */}
+            {/* TODO: Replace 'dummyForm' with an actual FormType object */}
+            {/* <FormBlock enableIntro={false} form={{} as any} /> */}
+          </div>
         </div>
-      </div>
-
-      {/* Bottom Section Placeholder (e.g., for 20vh contact form) */}
-      <div className="h-[30vh] max-w-screen-xl mx-auto flex items-center justify-center bg-brand-dark">
-        {/* Replace this with your contact form */}
-        <p className="text-lg text-brand-light">[ Contact form goes here... ]</p>
-      </div>
+      </section>
     </div>
   )
 }

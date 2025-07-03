@@ -4,7 +4,6 @@ import React from 'react'
 import Image from 'next/image'
 
 import type { Page as PageType } from '@/payload-types'
-import { RenderHero } from '@/heros/RenderHero'
 import { getCachedDocument } from '@/utilities/getDocument'
 
 export const metadata: Metadata = {
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 export default async function ServicesPage() {
-  const page = (await getCachedDocument('pages', 'services')()) as PageType | null
+  const _page = (await getCachedDocument('pages', 'services')()) as PageType | null
   const services = [
     {
       title: 'Dental Implants',
@@ -48,8 +47,10 @@ export default async function ServicesPage() {
 
   return (
     <div className="bg-background text-foreground">
-      <RenderHero {...page?.hero} />
-
+      {/* Hero Section */}
+      <div className="relative overflow-hidden my-28 w-max-screen-xl mx-auto px-6 justify-items-center">
+        <h1 className="text-brand-white justify-center font-heading font-bold text-6xl">Services</h1>
+      </div>
       {/* Services Grid */}
       <section className=" max-w-screen-xl m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 pb-24">
         {services.map((service, index) => (

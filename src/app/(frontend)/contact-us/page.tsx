@@ -9,29 +9,64 @@ export const metadata: Metadata = {
   title: 'Contact Us | Primedent',
 }
 
+// Extend PageType to include breadcrumbs from Nested Docs plugin
+interface Breadcrumb {
+  label: string
+  url?: string
+}
+
+type PageWithBreadcrumbs = PageType & { breadcrumbs?: Breadcrumb[] }
+
 export default async function ContactUsPage() {
-  const page = (await getCachedDocument('pages', 'contact-us')()) as PageType | null
+  const page = (await getCachedDocument('pages', 'contact-us')()) as PageWithBreadcrumbs | null
   return (
-     <div className="relative text-brand-white overflow-hidden min-h-screen">
-      <RenderHero {...page?.hero} type={page?.hero?.type ?? "none"} pageTitle={page?.title} />
+    <div className="relative text-brand-white overflow-hidden min-h-screen">
+      {/* Hero Section */}
+      <RenderHero {...page?.hero} type={page?.hero?.type ?? 'none'} pageTitle={page?.title} />
 
       {/* Contact Form + Info */}
       <div className="max-w-screen-xl mx-auto mt-20 px-6 md:flex md:gap-20 md:items-start mb-10">
         {/* Contact Form */}
         <div className="md:w-1/2 w-full">
           <h4 className="text-xl font-bold mb-4"># Get In Touch</h4>
-          <h2 className="mb-6 text-brand-primary text-4xl font-bold font-heading">Stay Connected <br /> for Better Health.</h2>
+          <h2 className="mb-6 text-brand-primary text-4xl font-bold font-heading">
+            Stay Connected <br /> for Better Health.
+          </h2>
           <form className="space-y-6">
             <div className="flex flex-col md:flex-row gap-6">
-              <input type="text" placeholder="Your Name" className="w-full px-4 py-2 bg-transparent border border-brand-light text-white" />
-              <input type="email" placeholder="Your Email" className="w-full px-4 py-2 bg-transparent border border-brand-light text-white" />
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="w-full px-4 py-2 bg-transparent border border-brand-light text-white"
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="w-full px-4 py-2 bg-transparent border border-brand-light text-white"
+              />
             </div>
             <div className="flex flex-col md:flex-row gap-6">
-              <input type="text" placeholder="Phone Number" className="w-full px-4 py-2 bg-transparent border border-brand-light text-white" />
-              <input type="text" placeholder="Subject" className="w-full px-4 py-2 bg-transparent border border-brand-light text-white" />
+              <input
+                type="text"
+                placeholder="Phone Number"
+                className="w-full px-4 py-2 bg-transparent border border-brand-light text-white"
+              />
+              <input
+                type="text"
+                placeholder="Subject"
+                className="w-full px-4 py-2 bg-transparent border border-brand-light text-white"
+              />
             </div>
-            <textarea placeholder="Write a Message..." className="w-full px-4 py-2 bg-transparent border border-brand-light text-white h-32"></textarea>
-            <button type="submit" className="bg-brand-primary font-heading text-xl text-brand-dark px-6 py-3">Book An Appointment →</button>
+            <textarea
+              placeholder="Write a Message..."
+              className="w-full px-4 py-2 bg-transparent border border-brand-light text-white h-32"
+            ></textarea>
+            <button
+              type="submit"
+              className="bg-brand-primary font-heading text-xl text-brand-dark px-6 py-3"
+            >
+              Book An Appointment →
+            </button>
           </form>
         </div>
 
@@ -65,7 +100,9 @@ export default async function ContactUsPage() {
               loading="lazy"
             ></iframe>
             <p className="font-heading text-2xl font-bold mt-4">Canada</p>
-            <p className="text-md mt-2">621 Heathway St, Suite 456 Cityville, Province AB 2323 Canada</p>
+            <p className="text-md mt-2">
+              621 Heathway St, Suite 456 Cityville, Province AB 2323 Canada
+            </p>
             <p className="text-sm mt-2">Mon–Sat: 7:00 – 17:00</p>
           </div>
           <div className="bg-brand-primary text-brand-dark  p-4">
@@ -85,7 +122,9 @@ export default async function ContactUsPage() {
               loading="lazy"
             ></iframe>
             <p className="font-heading text-2xl font-bold mt-4">Canada</p>
-            <p className="text-md mt-2">72 Heathway St, Suite 456 Cityville, Province AB 2323 Canada</p>
+            <p className="text-md mt-2">
+              72 Heathway St, Suite 456 Cityville, Province AB 2323 Canada
+            </p>
             <p className="text-sm mt-2">Mon–Sat: 7:00 – 17:00</p>
           </div>
         </div>

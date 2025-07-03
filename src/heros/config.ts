@@ -67,6 +67,14 @@ export const hero: Field = {
       relationTo: 'media',
       required: true,
     },
+    {
+      name: 'form',
+      type: 'relationship',
+      relationTo: 'forms',
+      admin: {
+        condition: (_, { type } = {}) => ['highImpact'].includes(type),
+      },
+    },
   ],
   label: false,
 }
