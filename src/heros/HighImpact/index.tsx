@@ -7,9 +7,9 @@ import type { Page } from '@/payload-types'
 import { CMSLink } from '@/components/Link'
 import { Media } from '@/components/Media'
 import RichText from '@/components/RichText'
-// import { FormBlock } from '@/blocks/Form/Component'
+import { FormBlock } from '@/blocks/Form/Component'
 
-export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText }) => {
+export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText, form }) => {
   const { setHeaderTheme } = useHeaderTheme()
 
   useEffect(() => {
@@ -53,13 +53,15 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
           {/* Left: CTA RichText */}
           <div className="flex-1 flex items-center justify-center md:justify-start">
             {/* Replace with actual CTA richText if available */}
-            <div className="text-lg text-brand-light">[ CTA RichText goes here... ]</div>
+            <div className="text-lg text-brand-white">
+              {richText && <RichText className="mb-6" data={richText} enableGutter={false} />}
+            </div>
           </div>
           {/* Right: Form */}
           <div className="flex-1 flex items-center justify-center md:justify-end">
             {/* Use FormBlock from blocks */}
             {/* TODO: Replace 'dummyForm' with an actual FormType object */}
-            {/* <FormBlock enableIntro={false} form={{} as any} /> */}
+            {form && typeof form === 'object' && <FormBlock enableIntro={false} form={form as any} />}
           </div>
         </div>
       </section>
